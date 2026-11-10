@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget E-Commerce</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: darkslategray;
+            background: whitesmoke;
+        }
+
+        .page {
+            max-width: 1400px;
+            margin: auto;
+            background: white;
+        }
+
+        .header, .brand, .products-title, .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header {
+            padding: 15px 30px;
+            background: honeydew;
+        }
+
+        .brand {
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .green-text, .cart-icon {
+            color: forestgreen;
+        }
+
+        .cart-icon {
+            font-size: 35px;
+        }
+         .tagline {
+            margin: 4px 0 0;
+            color: gray;
+            font-size: 13px;
+            font-style: italic;
+        }
+.navigation a {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 7px;
+                color: black;
+                            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+
+}
+     .navigation a:hover, .navigation .selected {
+            color: white;
+            background: forestgreen;
+        }
+       .cart {
+            position: relative;
+            color: black;
+            font-size: 27px;
+            text-decoration: none;
+        }
+
+        .cart-number {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            width: 19px;
+            height: 19px;
+            border-radius: 60%;
+            color: white;
+            background: forestgreen;
+            font-size: 12px;
+            line-height: 19px;
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 0 22px 25px;
+        }
+
+        .banner {
+            position: relative;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .banner img {
+            display: block;
+            width: 100%;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 17px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            background: forestgreen;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: darkgreen;
+        }
+
+        .banner-button {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+        }
+
+        .products-title {
+            margin-bottom: 15px;
+        }
+        .products-title h2 {
+            margin: 0;
+            padding-left: 12px;
+            border-left: 5px solid forestgreen;
+            font-size: 22px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product {
+            flex: 1 1 150px;
+            min-width: 0;
+            padding: 12px;
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+            background: white;
+            text-align: center;
+        }
+
+       
+
+        .product-image {
+            height: 140px;
+            margin-bottom: 10px;
+            border-radius: 7px;
+            background: snow;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product h3 {
+            font-size: 14px;
+        }
+
+        .price {
+            color: darkgreen;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            margin-left: 5px;
+            color: gray;
+            font-size: 13px;
+            text-decoration: line-through;
+        }
+
+        footer {
+            margin-top: 25px;
+            padding: 15px 30px;
+            background: black;
+        }
+        .footer-section {
+            flex: 1;
+            padding-left: 20px;
+            border-left: 1px solid gray;
+        }
+
+        .footer-section:first-child {
+            padding-left: 0;
+            border: none;
+        }
+
+        .footer .brand h1 {
+            font-size: 18px;
+            color: white;
+        }
+
+        .footer h3 {
+            margin-top: 0;
+            color: limegreen;
+            font-size: 14px;
+        }
+
+        .footer p, .footer a {
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .social a {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+            border-radius: 50%;
+            color: rgb(13, 9, 9);
+            background: white;
+            font-weight: bold;
+            line-height: 25px;
+            text-align: center;
+        }
+
+        .copyright {
+            padding: 10px;
+            color: white;
+            background: mediumseagreen;
+            font-size: 12px;
+            text-align: center;
+       width: 100%;
+        }
+      @media (max-width: 800px) {
+            .header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .navigation {
+                order: 3;
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer {
+                flex-wrap: wrap;
+            }
+
+
+            .footer-section {
+                flex-basis: 40%;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .header {
+                padding: 12px;
+            }
+
+            .brand h1 {
+                font-size: 19px;
+            }
+
+            .navigation a {
+                padding: 8px;
+                font-size: 11px;
+            }
+
+            .main-content {
+                padding: 0 12px 15px;
+            }
+
+            .products-title h2 {
+                font-size: 17px;
+            }
+
+            .products-title .button {
+                padding: 8px;
+                font-size: 10px;
+            }
+
+            .product {
+                flex-basis: 40%;
+            }
+
+            .product-image {
+                height: 110px; 
+            }
+
+            .footer {
+                padding: 18px;
+            }
+
+            .footer-section {
+                flex-basis: 40%;
+                padding-left: 0;
+                border: none;
+            }
+        }
+
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <header class="header">
+        <div class="brand">
+            <span class="cart-icon"><img src="cart.png" alt="Cart"></span>
+            <div>
+                <h1>Gadget <span class="green-text">E-Commerce</span></h1>
+                <p class="tagline">Smart Gadgets, Better Life</p>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <a href="#home" class="selected">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#service">SERVICE</a>
+            <a href="#login">LOGIN</a>
+        </nav>
+
+        <a href="#products" class="cart">🛒<span class="cart-number">0</span>
+        </a>
+    </header>
+
+    <main class="main-content" id="home">
+
+        <section class="banner">
+            <img src="latest.png" alt="Gadgets on sale">
+            <a href="#products" class="button banner-button">Shop Now →</a>
+        </section>
+
+        <section id="products">
+            <div class="products-title">
+                <h2>Our Selling Products</h2>
+                <a href="#products" class="button">View All Products →</a>
+            </div>
+
+            <div class="product-list">
+
+                <div class="product">
+                    <div class="product-image">
+                        <img src="a3.png" alt="HP Laptop">
+                    </div>
+                    <h3>HP Laptop 15.6"</h3>
+                    <p class="price">$750 <span class="old-price">$850</span></p>
+                    <button class="button">🛒 Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <img src="a2.png" alt="Samsung Galaxy A55">
+                    </div>
+                    <h3>Samsung Galaxy A55</h3>
+                    <p class="price">$450 <span class="old-price">$500</span></p>
+                    <button class="button">🛒 Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <img src="a1.png" alt="AirPods Pro">
+                    </div>
+                    <h3>AirPods Pro</h3>
+                    <p class="price">$250 <span class="old-price">$300</span></p>
+                    <button class="button">🛒 Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <img src="a4.png" alt="Smart Watch S9">
+                    </div>
+                    <h3>Smart Watch S9</h3>
+                    <p class="price">$120 <span class="old-price">$150</span></p>
+                    <button class="button">🛒 Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">
+                        <img src="a5.png" alt="Bluetooth Headphones">
+                    </div>
+                    <h3>Bluetooth Headphones</h3>
+                    <p class="price">$90 <span class="old-price">$120</span></p>
+                    <button class="button">🛒 Add to Cart</button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer">
+
+            <div class="footer-section">
+                <div class="brand">
+                    <span class="cart-icon">🛒</span>
+                    <div>
+                        <h1>Gadget <span class="green-text">E-Commerce</span></h1>
+                        <p class="tagline">Smart Gadgets, Better Life</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section" id="about">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a> |
+                <a href="#about">About</a> |
+                <a href="#service">Service</a>
+            </div>
+
+            <div class="footer-section" id="service">
+                <h3>Contact Us</h3>
+                <p>☎ +250 788 123 456</p>
+                <p>✉ info@gadgetecom.rw</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social">
+                    <a href="#">f</a>
+                    <a href="#">X</a>
+                    <a href="#">▶</a>
+                    <a href="#">in</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Gadget E-Commerce. All rights reserved.
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
